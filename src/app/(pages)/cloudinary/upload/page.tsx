@@ -3,7 +3,6 @@ import { getErrorMessage } from "@/utils/funckage";
 import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
-import UploadIcon from "@/components/icons/upload_icon";
 import { handleKeyUp } from "@/utils/handlers";
 import { LiaTimesSolid } from "react-icons/lia";
 import { ToastContainer, toast } from "react-toastify";
@@ -66,7 +65,6 @@ const CloudinaryUpload = () => {
 
     return (
         <div className="min-w-[50vw] p-5 dark:bg-black dark:text-gray-300">
-            <h2 className="text-center mb-4">Upload Image To Cloudinary</h2>
             {image ? (
                 <div className="flex flex-col items-center">
                     <Image
@@ -77,6 +75,7 @@ const CloudinaryUpload = () => {
                     />
                     <div className="flex justify-between w-[50%] my-3">
                         <button
+                            type="button"
                             onKeyUp={(event) =>
                                 handleKeyUp(event, () => setImage(null))
                             }
@@ -86,6 +85,7 @@ const CloudinaryUpload = () => {
                             Cancel <LiaTimesSolid size={18} />
                         </button>
                         <button
+                            type="submit"
                             onKeyUp={(event) =>
                                 handleKeyUp(event, () => setImage(null))
                             }
@@ -116,6 +116,7 @@ const CloudinaryUpload = () => {
                     />
 
                     <button
+                        type="button"
                         onKeyUp={(event) =>
                             handleKeyUp(event, () => setImage(null))
                         }
@@ -137,6 +138,7 @@ const CloudinaryUpload = () => {
                     />
                 </div>
             )}
+            <h2 className="text-center mb-4">Upload Image To Cloudinary</h2>
             <ToastContainer position="bottom-right" autoClose={2000} />
         </div>
     );
